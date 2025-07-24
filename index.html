@@ -84,6 +84,101 @@
   transition: all 0.3s ease;
 }
 
+/* Testimonials Slider */
+.testimonials-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.testimonials-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.testimonial-card {
+    min-width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 0;
+}
+
+.testimonial-text {
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonial-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.testimonial-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-dot.active {
+    background: #f5b9f7;
+    transform: scale(1.2);
+}
+
+.testimonial-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.testimonial-arrow:hover {
+    background: rgba(245, 185, 247, 0.3);
+}
+
+.testimonial-arrow.prev {
+    left: 10px;
+}
+
+.testimonial-arrow.next {
+    right: 10px;
+}
+
+/* Hide arrows on mobile */
+@media (max-width: 768px) {
+    .testimonial-arrow {
+        display: none;
+    }
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .logo-img {
@@ -890,27 +985,35 @@
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Project 1" class="portfolio-img">
+                    <img src="bake.png" alt="Project 1" class="portfolio-img">
                     <div class="portfolio-overlay">
                         <span class="portfolio-category">Web Design</span>
-                        <h3 class="portfolio-title">Nova Financial Platform</h3>
-                        <p>Modern banking interface with real-time analytics</p>
+                        <h3 class="portfolio-title">Bakery Platform</h3>
+                        <p>A clean, modern bakery website showcasing the company’s products, story.</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 2" class="portfolio-img">
+                    <img src="consult.png" alt="Project 2" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <span class="portfolio-category">Mobile App</span>
-                        <h3 class="portfolio-title">Fitness Tracker Pro</h3>
-                        <p>AI-powered workout companion with health insights</p>
+                        <span class="portfolio-category">Web Design</span>
+                        <h3 class="portfolio-title">Consulting Agency</h3>
+                        <p>Highlight the agency’s services, expertise, and client success stories.</p>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Project 3" class="portfolio-img">
+                    <img src="recruit.png" alt="Project 3" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <span class="portfolio-category">E-commerce</span>
-                        <h3 class="portfolio-title">Urban Style Marketplace</h3>
-                        <p>Fashion e-commerce platform with AR try-on</p>
+                        <span class="portfolio-category">Web Design</span>
+                        <h3 class="portfolio-title">Recruitment Agency</h3>
+                        <p>Connect top talent with employers, showcasing job listings, services, and industry expertise.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="tech.png" alt="Project 3" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">Web Design</span>
+                        <h3 class="portfolio-title">Tech Startup</h3>
+                        <p>Showcase the startup’s innovative solutions, team, and vision for the future.</p>
                     </div>
                 </div>
             </div>
@@ -959,26 +1062,61 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2 style="color: #f5b9f7;">Client Testimonials</h2>
-                <p>Don't just take our word for it. Here's what our clients say about working with us.</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">
-                    "Kelto transformed our digital presence completely. Their attention to detail and innovative approach resulted in a website that not only looks stunning but has significantly increased our conversion rates."
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <h2 style="color: #f5b9f7;">Client Testimonials</h2>
+            <p>Don't just take our word for it. Here's what our clients say about working with us.</p>
+        </div>
+        <div class="testimonials-container">
+            <button class="testimonial-arrow prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Kelto transformed our digital presence completely. Their attention to detail and innovative approach resulted in a website that not only looks stunning but has significantly increased our conversion rates."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="author-img">
+                        <div class="author-info">
+                            <h4 style="color: #f5b9f7;">Ajuma Mercy</h4>
+                            <p>CEO, Praim Labour Xpert.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson" class="author-img">
-                    <div class="author-info">
-                        <h4 style="color: #f5b9f7;">Ajuma Mercy</h4>
-                        <p>CEO, Praim Labour Xpert.</p>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Working with Kelto was a game-changer for our e-commerce business. Their team delivered a seamless shopping experience that boosted our sales by 40% in the first quarter post-launch. Highly recommend their services!"
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="author-img">
+                        <div class="author-info">
+                            <h4 style="color: #f5b9f7;">Esther Omada</h4>
+                            <p>Founder, Travel Cliques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Kelto's technical expertise and creative vision helped us build a complex SaaS platform that exceeded all our expectations. Their team was professional, responsive, and delivered ahead of schedule."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emma Rodriguez" class="author-img">
+                        <div class="author-info">
+                            <h4 style="color: #f5b9f7;">Prince Aiyowe</h4>
+                            <p>CTO, Global Labour Experts</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            <button class="testimonial-arrow next"><i class="fas fa-chevron-right"></i></button>
+            <div class="testimonial-nav">
+                <div class="testimonial-dot active" data-index="0"></div>
+                <div class="testimonial-dot" data-index="1"></div>
+                <div class="testimonial-dot" data-index="2"></div>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -1021,17 +1159,9 @@
                 <div class="footer-col">
                     <h3>Services</h3>
                     <a href="#" class="footer-link">Web Development</a>
-                    <a href="#" class="footer-link">UI/UX Design</a>
-                    <a href="#" class="footer-link">Mobile Apps</a>
-                    <a href="#" class="footer-link">E-commerce</a>
+                    <a href="#" class="footer-link">Web hosting solutions</a>
+                    <a href="#" class="footer-link">Website Prototyping</a>
                     <a href="#" class="footer-link">SEO Optimization</a>
-                </div>
-                <div class="footer-col">
-                    <h3>Connect</h3>
-                    <a href="#" class="footer-link"><i class="fab fa-twitter"></i> Twitter</a>
-                    <a href="#" class="footer-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="#" class="footer-link"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="#" class="footer-link"><i class="fab fa-dribbble"></i> Dribbble</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1045,6 +1175,88 @@
     <script>
         // Initialize animations when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            // Testimonials Slider
+const slider = document.querySelector('.testimonials-slider');
+const slides = document.querySelectorAll('.testimonial-card');
+const dots = document.querySelectorAll('.testimonial-dot');
+const prevBtn = document.querySelector('.testimonial-arrow.prev');
+const nextBtn = document.querySelector('.testimonial-arrow.next');
+let currentIndex = 0;
+const slideCount = slides.length;
+
+function updateSlider() {
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+}
+
+// Next slide
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slideCount;
+    updateSlider();
+});
+
+// Previous slide
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+    updateSlider();
+});
+
+// Dot navigation
+dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+        currentIndex = parseInt(dot.getAttribute('data-index'));
+        updateSlider();
+    });
+});
+
+// Auto-rotate slides (optional)
+let slideInterval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % slideCount;
+    updateSlider();
+}, 5000);
+
+// Pause auto-rotation on hover
+const testimonialsContainer = document.querySelector('.testimonials-container');
+testimonialsContainer.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+});
+
+testimonialsContainer.addEventListener('mouseleave', () => {
+    slideInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlider();
+    }, 5000);
+});
+
+// Touch support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+testimonialsContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, {passive: true});
+
+testimonialsContainer.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, {passive: true});
+
+function handleSwipe() {
+    const threshold = 50;
+    if (touchEndX < touchStartX - threshold) {
+        // Swipe left - next slide
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlider();
+    } else if (touchEndX > touchStartX + threshold) {
+        // Swipe right - previous slide
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateSlider();
+    }
+}
             // Mobile menu toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const navLinks = document.getElementById('navLinks');
